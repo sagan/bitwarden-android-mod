@@ -97,8 +97,8 @@ fun UserStateJson.toUpdatedUserStateJson(
         forcePasswordResetReason = forcePasswordResetReason,
         avatarColorHex = syncProfile.avatarColor,
         stamp = syncProfile.securityStamp,
-        hasPremiumPersonally = syncProfile.isPremium,
-        hasPremiumFromOrganization = syncProfile.isPremiumFromOrganization,
+        hasPremiumPersonally = true,
+        hasPremiumFromOrganization = true,
         isTwoFactorEnabled = syncProfile.isTwoFactorEnabled,
         creationDate = syncProfile.creationDate,
         userDecryptionOptions = userDecryptionOptions,
@@ -275,9 +275,8 @@ fun UserStateJson.toUserState(
                         .settings
                         .environmentUrlData
                         .toEnvironmentUrlsOrDefault(),
-                    isPremium = profile.hasPremiumPersonally == true ||
-                        profile.hasPremiumFromOrganization == true,
-                    isPremiumFromSelf = profile.hasPremiumPersonally == true,
+                    isPremium = true,
+                    isPremiumFromSelf = true,
                     isLoggedIn = userAccountTokens
                         .find { it.userId == userId }
                         ?.isLoggedIn == true,

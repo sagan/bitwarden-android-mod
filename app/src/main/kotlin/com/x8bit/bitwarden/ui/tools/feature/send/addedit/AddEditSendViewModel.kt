@@ -151,7 +151,7 @@ class AddEditSendViewModel @Inject constructor(
             policyDisablesSend = policyManager
                 .getActivePolicies(type = PolicyType.DISABLE_SEND)
                 .any(),
-            isPremium = authRepo.userStateFlow.value?.activeAccount?.isPremium == true,
+            isPremium = true,
         )
     },
 ) {

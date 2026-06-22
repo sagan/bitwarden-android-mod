@@ -58,7 +58,7 @@ class AttachmentsViewModel @Inject constructor(
     // We load the state from the savedStateHandle for testing purposes.
     initialState = savedStateHandle[KEY_STATE]
         ?: run {
-            val isPremiumUser = authRepo.userStateFlow.value?.activeAccount?.isPremium == true
+            val isPremiumUser = true
             AttachmentsState(
                 cipherId = savedStateHandle.toAttachmentsArgs().cipherId,
                 viewState = AttachmentsState.ViewState.Loading,

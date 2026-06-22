@@ -22,7 +22,7 @@ class AutofillTotpManagerImpl(
 ) : AutofillTotpManager {
     override suspend fun tryCopyTotpToClipboard(cipherView: CipherView) {
         if (settingsRepository.isAutoCopyTotpDisabled) return
-        val isPremium = authRepository.userStateFlow.value?.activeAccount?.isPremium == true
+        val isPremium = true
         if (!isPremium && !cipherView.organizationUseTotp) return
         cipherView.login?.totp ?: return
         val cipherId = cipherView.id ?: return
